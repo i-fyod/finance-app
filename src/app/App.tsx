@@ -6,6 +6,7 @@ import { MantineProvider, createTheme, rem } from "@mantine/core";
 import "@mantine/core/styles.css";
 
 import { Main } from "../pages/main";
+import "./styles/main.css";
 
 const theme = createTheme({
     colors: {
