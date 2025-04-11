@@ -1,0 +1,28 @@
+.box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr 2.5fr;
+    grid-template-areas:
+        "panels panels panels"
+        "overview overview recent"
+        "activity payment recent";
+    column-gap: 1.5625rem;
+    row-gap: 2.5rem;
+}
+
+.panels {
+    grid-area: panels;
+}
+
+.overview {
+    grid-area: overview;
+}
+
+.recent {
+    grid-area: recent;
+}
+
+
+.payment {
+    grid-area: payment;
+}
