@@ -40,7 +40,7 @@ export const Recent = ({ className }: { className?: string }) => {
     return (
         <Box className={className} h="600" bg="bg.9" p="15" style={{ borderRadius: rem(8) }}>
             <Title pos="absolute" order={2} c="white">
-                Recent Transactions
+                Последние транзакции
             </Title>
             <ScrollArea h="95%" top={40} offsetScrollbars scrollbarSize={3} scrollHideDelay={200}>
                 {data.map((transaction) => (

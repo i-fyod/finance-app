@@ -3,27 +3,27 @@ import { rem, useMantineTheme } from "@mantine/core";
 
 export const data = [
     {
-        date: "Jan",
+        date: "Янв",
         Income: 900,
         Expenses: 200,
     },
     {
-        date: "Feb",
+        date: "Фев",
         Income: 70,
         Expenses: 650,
     },
     {
-        date: "Mar",
+        date: "Мар",
         Income: 240,
         Expenses: 1080,
     },
     {
-        date: "Apr",
+        date: "Апр",
         Income: 600,
         Expenses: 600,
     },
     {
-        date: "May",
+        date: "Май",
         Income: 1100,
         Expenses: 850,
     },
@@ -37,14 +37,14 @@ export const OverviewChart = () => {
             data={data}
             dataKey="date"
             series={[
-                { name: "Income", color: "green.9" },
-                { name: "Expenses", color: "yellow.9" },
+                { name: "Expenses", label: "Затраты", color: "yellow.9" },
+                { name: "Income", label: "Доход", color: "green.9" },
             ]}
             curveType="bump"
             tickLine="none"
             withLegend
             textColor="gray.4"
-            unit=" ₽"
+            unit="₽"
             tooltipAnimationDuration={200}
             styles={{
                 tooltip: {

@@ -22,6 +22,9 @@
     grid-area: recent;
 }
 
+.activity {
+    grid-area: activity;
+}
 
 .payment {
     grid-area: payment;

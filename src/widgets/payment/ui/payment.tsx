@@ -28,7 +28,7 @@ export const Payment = ({ className }: { className?: string }) => {
     return (
         <Box className={className} h="255" bg="bg.9" p="15" style={{ borderRadius: rem(8) }}>
             <Title pos="absolute" order={2} c="white">
-                Payment
+                Платежи
             </Title>
             <ScrollArea h="85%" top={40} offsetScrollbars scrollbarSize={3} scrollHideDelay={200}>
                 {data.map((invoice) => (

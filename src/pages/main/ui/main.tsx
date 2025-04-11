@@ -5,6 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 
 import { MenuItem } from "@/entities/menuItem";
 
+import { Activity } from "@/widgets/activity";
 import { MiniPanels } from "@/widgets/miniPanels";
 import { Overview } from "@/widgets/overview";
 import { Payment } from "@/widgets/payment";
@@ -47,7 +48,7 @@ export function Main() {
                     onClick={() => {
                         setPage("dashboard");
                     }}>
-                    DashBoard
+                    Главная
                 </MenuItem>
             </AppShell.Navbar>
             <AppShell.Main bg="bg.8">
@@ -55,7 +56,7 @@ export function Main() {
                     <MiniPanels className={styles.panels} />
                     <Overview className={styles.overview} />
                     <Recent className={styles.recent} />
-                    <p>Activity</p>
+                    <Activity className={styles.activity} />
                     <Payment className={styles.payment} />
                 </Box>
             </AppShell.Main>
