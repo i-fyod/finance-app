@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { AppShell, Box, Burger, Group, useMatches } from "@mantine/core";
+import { AppShell, Box, Burger, Center, Group, useMatches } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
 import { MenuItem } from "@/entities/menuItem";
@@ -51,7 +51,7 @@ export function Main() {
                     Главная
                 </MenuItem>
             </AppShell.Navbar>
-            <AppShell.Main bg="bg.8">
+            <AppShell.Main bg="bg.8" component={Center}>
                 <Box className={styles.box}>
                     <MiniPanels className={styles.panels} />
                     <Overview className={styles.overview} />
