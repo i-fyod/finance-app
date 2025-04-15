@@ -1,4 +1,5 @@
 import { Box, ScrollArea, Title, rem } from "@mantine/core";
+import { useId } from "@mantine/hooks";
 
 import { Invoice } from "@/entities/invoice";
 
@@ -32,7 +33,7 @@ export const Payment = ({ className }: { className?: string }) => {
             </Title>
             <ScrollArea h="85%" top={40} offsetScrollbars scrollbarSize={3} scrollHideDelay={200}>
                 {data.map((invoice) => (
-                    <Invoice data={invoice} />
+                    <Invoice key={useId()} data={invoice} />
                 ))}
             </ScrollArea>
         </Box>

@@ -1,3 +1,14 @@
+:root {
+    --mantine-font-family: "Exo 2";
+    --mantine-font-family-headings: "Exo 2";
+}
+
 html {
-    font-size: 135%;
+    @media (1366px > width >=1200px) {
+        font-size: 88%;
+    }
+
+    @media (1200px > width >=1024px) {
+        font-size: 80%;
+    }
 }

@@ -5,12 +5,12 @@ import { Box, Group, Text, rem } from "@mantine/core";
 interface Props {
     icon: React.ReactElement;
     isActive: boolean;
-    onClick: () => void;
     children: React.ReactNode;
 }
-export const MenuItem = ({ icon, isActive, onClick, children }: Props) => {
+
+export const MenuItem = ({ icon, isActive, children }: Props) => {
     return (
-        <Group onClick={onClick} justify="space-between" my={12.5} style={{ cursor: "pointer" }}>
+        <Group justify="space-between" my={12.5} style={{ cursor: "pointer" }}>
             <Group gap={18}>
                 {icon}
                 <Text fw={isActive ? 600 : 400} c={isActive ? "green.9" : "gray.4"}>

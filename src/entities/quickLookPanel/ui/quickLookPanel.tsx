@@ -29,7 +29,9 @@ export const QuickLookPanel = ({ title }: Props) => {
             style={{ borderRadius: rem(8) }}>
             <Icon />
             <Stack w="60%" h="85%" gap="0" justify="space-between">
-                <Title order={3}>{title}</Title>
+                <Title order={3} fz="13">
+                    {title}
+                </Title>
                 <Title order={1} c="white" fw="500" component="p">
                     <NumberFormatter
                         suffix="₽"
