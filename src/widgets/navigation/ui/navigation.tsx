@@ -1,10 +1,10 @@
 import { AppShell, Burger, Center, Group, useMatches } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useLocation } from "@tanstack/react-router";
+import { useLocation, useNavigate } from "@tanstack/react-router";
 
 import { MenuItem } from "@/entities/menuItem";
 
-import { DashBoard } from "@/shared/ui/icons";
+import { DashboardIcon, TransactionsIcon } from "@/shared/ui/icons";
 import { Logo } from "@/shared/ui/logo";
 
 export function Navigation({ children }: { children: React.ReactNode }) {
@@ -17,6 +17,8 @@ export function Navigation({ children }: { children: React.ReactNode }) {
         lg: 0,
         xl: 0,
     });
+    const navigate = useNavigate();
+
     return (
         <AppShell
             header={{ height: headerHeight }}
@@ -34,9 +36,20 @@ export function Navigation({ children }: { children: React.ReactNode }) {
                     Finance
                 </Logo>
                 <MenuItem
-                    icon={<DashBoard active={page === "/dashboard"} />}
-                    isActive={page === "/dashboard"}>
+                    icon={<DashboardIcon active={page === "/dashboard"} />}
+                    isActive={page === "/dashboard"}
+                    onClick={() => {
+                        navigate({ to: "/dashboard" });
+                    }}>
                     Главная
+                </MenuItem>
+                <MenuItem
+                    icon={<TransactionsIcon active={page === "/transactions"} />}
+                    isActive={page === "/transactions"}
+                    onClick={() => {
+                        navigate({ to: "/transactions" });
+                    }}>
+                    Транзакции
                 </MenuItem>
             </AppShell.Navbar>
             <AppShell.Main bg="bg.8" component={Center}>
