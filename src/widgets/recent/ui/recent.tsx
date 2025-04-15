@@ -1,4 +1,5 @@
 import { Box, ScrollArea, Title, rem } from "@mantine/core";
+import { useId } from "@mantine/hooks";
 
 import { Transaction } from "@/entities/transaction";
 
@@ -44,7 +45,7 @@ export const Recent = ({ className }: { className?: string }) => {
             </Title>
             <ScrollArea h="95%" top={40} offsetScrollbars scrollbarSize={3} scrollHideDelay={200}>
                 {data.map((transaction) => (
-                    <Transaction data={transaction} />
+                    <Transaction key={useId()} data={transaction} />
                 ))}
             </ScrollArea>
         </Box>

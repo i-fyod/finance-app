@@ -28,6 +28,7 @@ export const Transaction = ({ data }: Props) => {
                         thousandSeparator="."
                         decimalScale={2}
                         decimalSeparator=","
+                        allowNegative={false}
                     />
                 </Text>
             </Group>
