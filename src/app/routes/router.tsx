@@ -1,4 +1,5 @@
 import { Main } from "@/pages/main";
+import { Transactions } from "@/pages/transactions";
 
 import { MantineProvider } from "@mantine/core";
 import {
@@ -29,6 +30,12 @@ const mainRoute = createRoute({
     component: Main,
 });
 
+const transactionsRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "transactions",
+    component: Transactions,
+});
+
 const notFoundRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: "*",
@@ -38,5 +45,5 @@ const notFoundRoute = createRoute({
 });
 
 export const router = createRouter({
-    routeTree: rootRoute.addChildren([mainRoute, notFoundRoute]),
+    routeTree: rootRoute.addChildren([mainRoute, transactionsRoute, notFoundRoute]),
 });
