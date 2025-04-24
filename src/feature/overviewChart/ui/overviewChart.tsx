@@ -1,43 +1,23 @@
 import { LineChart } from "@mantine/charts";
 import { rem } from "@mantine/core";
+import { useQuery } from "@tanstack/react-query";
 
-export const data = [
-    {
-        date: "Янв",
-        Income: 900,
-        Expenses: 200,
-    },
-    {
-        date: "Фев",
-        Income: 70,
-        Expenses: 650,
-    },
-    {
-        date: "Мар",
-        Income: 240,
-        Expenses: 1080,
-    },
-    {
-        date: "Апр",
-        Income: 600,
-        Expenses: 600,
-    },
-    {
-        date: "Май",
-        Income: 1100,
-        Expenses: 850,
-    },
-];
+import { getStats } from "@/shared/api";
 
 export const OverviewChart = () => {
+    const { data, isLoading } = useQuery({
+        queryKey: ["yearlyStats"],
+        queryFn: () => getStats("yearly"),
+    });
+
     return (
         <LineChart
             h="265"
-            data={data}
+            data={isLoading ? [] : data!}
             dataKey="date"
             series={[
-                { name: "Expenses", label: "Затраты", color: "yellow.9" },
-                { name: "Income", label: "Доход", color: "green.9" },
+                { name: "expenses", label: "Затраты", color: "yellow.9" },
+                { name: "income", label: "Доход", color: "green.9" },
             ]}
             curveType="bump"
             tickLine="none"

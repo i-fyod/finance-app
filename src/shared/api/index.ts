@@ -3,5 +3,6 @@ export {
     getTransaction,
     createTransaction,
     deleteTransaction,
+    getStats,
     getSummary,
 } from "./api.ts";
