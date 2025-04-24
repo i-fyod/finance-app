@@ -19,6 +19,12 @@ export interface ITransactionsResponse {
     ];
 }
 
+export interface ISummary {
+    balance: number;
+    expenses: number;
+    income: number;
+}
+
 export interface IUrlParams {
     id?: number;
 }
