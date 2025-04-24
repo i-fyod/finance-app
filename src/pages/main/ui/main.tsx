@@ -10,7 +10,7 @@ import styles from "./styles.module.css";
 
 export function Main() {
     return (
-        <Box className={styles.box}>
+        <Box className={styles.box} style={{ height: "calc(100vh - 50px)" }}>
             <MiniPanels className={styles.panels} />
             <Overview className={styles.overview} />
             <Recent className={styles.recent} />

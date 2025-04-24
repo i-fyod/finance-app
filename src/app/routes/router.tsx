@@ -2,6 +2,7 @@ import { Main } from "@/pages/main";
 import { Transactions } from "@/pages/transactions";
 
 import { MantineProvider } from "@mantine/core";
+import { QueryClientProvider } from "@tanstack/react-query";
 import {
     Navigate,
     Outlet,
@@ -12,14 +13,18 @@ import {
 
 import { Navigation } from "@/widgets/navigation";
 
-import { theme } from "@/shared/lib";
+import { queryClient, theme } from "@/shared/lib";
+import { UuidInit } from "@/shared/ui/uuid";
 
 const rootRoute = createRootRoute({
     component: () => (
         <MantineProvider defaultColorScheme="dark" theme={theme}>
-            <Navigation>
-                <Outlet />
-            </Navigation>
+            <QueryClientProvider client={queryClient}>
+                <UuidInit />
+                <Navigation>
+                    <Outlet />
+                </Navigation>
+            </QueryClientProvider>
         </MantineProvider>
     ),
 });
@@ -30,7 +35,7 @@ const mainRoute = createRoute({
     component: Main,
 });
 
-const transactionsRoute = createRoute({
+export const transactionsRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: "transactions",
     component: Transactions,

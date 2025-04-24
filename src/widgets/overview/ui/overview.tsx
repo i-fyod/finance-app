@@ -4,7 +4,7 @@ import { Box, Title, rem } from "@mantine/core";
 
 export const Overview = ({ className }: { className?: string }) => {
     return (
-        <Box className={className} h="300" bg="bg.9" p="15" style={{ borderRadius: rem(8) }}>
+        <Box className={className} h="300" bg="dark.6" p="15" style={{ borderRadius: rem(8) }}>
             <Title pos="absolute" order={2} c="white">
                 Статистика
             </Title>

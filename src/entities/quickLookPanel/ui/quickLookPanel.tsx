@@ -22,7 +22,7 @@ export const QuickLookPanel = ({ title }: Props) => {
         <Group
             w="215"
             h="95"
-            bg="bg.9"
+            bg="dark.6"
             p="15"
             justify="space-between"
             component={Box}

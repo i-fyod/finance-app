@@ -1,52 +1,28 @@
 import { Box, ScrollArea, Title, rem } from "@mantine/core";
-import { useId } from "@mantine/hooks";
+import { useQuery } from "@tanstack/react-query";
 
 import { Transaction } from "@/entities/transaction";
 
-export const data = [
-    {
-        type: "income",
-        description: "Перевод",
-        name: "Matheus Ferrero",
-        cost: 540,
-    },
-    {
-        type: "expenses",
-        description: "Перевод",
-        name: "Floyd Miles",
-        cost: 395,
-    },
-    {
-        type: "expenses",
-        description: "Супермаркеты",
-        name: "Пятерочка",
-        cost: 297,
-    },
-
-    {
-        type: "income",
-        description: "Супермаркеты",
-        name: "Дикси",
-        cost: 297,
-    },
-    {
-        type: "expenses",
-        description: "Фастфуд",
-        name: "MacDonalds",
-        cost: 103213466.9524,
-    },
-];
+import { getTransactions } from "@/shared/api";
 
 export const Recent = ({ className }: { className?: string }) => {
+    const { data } = useQuery({
+        queryKey: ["latestTransactions"],
+        queryFn: getTransactions,
+        select: (data) => data.data[0].transactions,
+    });
+
     return (
-        <Box className={className} h="600" bg="bg.9" p="15" style={{ borderRadius: rem(8) }}>
+        <Box className={className} h="600" bg="dark.6" p="15" style={{ borderRadius: rem(8) }}>
             <Title pos="absolute" order={2} c="white">
                 Последние транзакции
             </Title>
             <ScrollArea h="95%" top={40} offsetScrollbars scrollbarSize={3} scrollHideDelay={200}>
-                {data.map((transaction) => (
-                    <Transaction key={useId()} data={transaction} />
-                ))}
+                {data
+                    ? data.map((transaction) => (
+                          <Transaction key={transaction.transactionId} data={transaction} />
+                      ))
+                    : ""}
             </ScrollArea>
         </Box>
     );

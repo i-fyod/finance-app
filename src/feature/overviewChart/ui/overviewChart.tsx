@@ -1,5 +1,5 @@
 import { LineChart } from "@mantine/charts";
-import { rem, useMantineTheme } from "@mantine/core";
+import { rem } from "@mantine/core";
 
 export const data = [
     {
@@ -30,7 +30,6 @@ export const data = [
 ];
 
 export const OverviewChart = () => {
-    const theme = useMantineTheme();
     return (
         <LineChart
             h="265"
@@ -48,11 +47,10 @@ export const OverviewChart = () => {
             tooltipAnimationDuration={200}
             styles={{
                 tooltip: {
-                    backgroundColor: theme.colors.bg[8],
                     border: "none",
                     borderRadius: rem(8),
                 },
-                legendItemName: { color: theme.colors.gray[4], fontSize: rem(12) },
+                legendItemName: { color: "gray.4", fontSize: rem(12) },
             }}
         />
     );
