@@ -1,46 +1,25 @@
 import { BarChart } from "@mantine/charts";
 import { rem } from "@mantine/core";
+import { useQuery } from "@tanstack/react-query";
 
+import { getStats } from "@/shared/api";
 import { formatNumberWithSuffix } from "@/shared/lib";
 
-export const data = [
-    {
-        date: "Пн",
-        Earning: 1200,
-        Spent: 400,
-    },
-    {
-        date: "Вт",
-        Earning: 70,
-        Spent: 650,
-    },
-    {
-        date: "Ср",
-        Earning: 240,
-        Spent: 1080,
-    },
-    {
-        date: "Чт",
-        Earning: 600,
-        Spent: 600,
-    },
-    {
-        date: "Пт",
-        Earning: 1100,
-        Spent: 850,
-    },
-];
-
 export const ActivityChart = () => {
+    const { data, isLoading } = useQuery({
+        queryKey: ["weeklyStats"],
+        queryFn: () => getStats("weekly"),
+    });
+
     return (
         <BarChart
             h="225"
-            data={data}
+            data={isLoading ? [] : data!}
             dataKey="date"
             valueFormatter={formatNumberWithSuffix}
             series={[
-                { name: "Spent", label: "Траты", color: "yellow.9" },
-                { name: "Earning", label: "Заработок", color: "green.9" },
+                { name: "expenses", label: "Траты", color: "yellow.9" },
+                { name: "income", label: "Заработок", color: "green.9" },
             ]}
             type="stacked"
             tickLine="none"

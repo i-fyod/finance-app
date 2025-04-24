@@ -10,10 +10,10 @@ interface Props {
 }
 
 const iconMap: { [key: string]: React.FC } = {
-    Balance: BalanceIcon,
-    Income: IncomeIcon,
-    Expenses: ExpensesIcon,
-    Savings: SavingsIcon,
+    Баланс: BalanceIcon,
+    Доход: IncomeIcon,
+    Затраты: ExpensesIcon,
+    Накопления: SavingsIcon,
 };
 
 export const QuickLookPanel = ({ title, value }: Props) => {

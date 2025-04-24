@@ -19,6 +19,12 @@ export interface ITransactionsResponse {
     ];
 }
 
+export interface IStatsResponse {
+    date: string;
+    income: number;
+    expenses: number;
+}
+
 export interface ISummary {
     balance: number;
     expenses: number;

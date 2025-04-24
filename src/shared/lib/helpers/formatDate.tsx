@@ -20,6 +20,6 @@ export function formatDate(date: string) {
     } else if (Number(currentDate.slice(8, 10)) - 1 === Number(date.slice(8, 10))) {
         return "Вчера";
     } else {
-        return `${date.slice(8, 10)} ${monthNames[Number(date.slice(5, 7))]}`;
+        return `${date.slice(8, 10)} ${monthNames[Number(date.slice(5, 7)) - 1]}`;
     }
 }
