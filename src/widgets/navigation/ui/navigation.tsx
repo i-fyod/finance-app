@@ -25,13 +25,13 @@ export function Navigation({ children }: { children: React.ReactNode }) {
             navbar={{ width: 250, breakpoint: "sm", collapsed: { mobile: !opened } }}
             padding="25"
             withBorder={false}>
-            <AppShell.Header hiddenFrom="sm" bg="bg.9">
+            <AppShell.Header hiddenFrom="sm" bg="dark.6">
                 <Group h="100%" px="35">
                     <Burger opened={opened} onClick={toggle} size="sm" />
                     <Logo>Finance</Logo>
                 </Group>
             </AppShell.Header>{" "}
-            <AppShell.Navbar p="25 0 0 35" bg="bg.9">
+            <AppShell.Navbar p="25 0 0 35" bg="dark.6">
                 <Logo mb={37.5} visible={false}>
                     Finance
                 </Logo>
@@ -52,9 +52,7 @@ export function Navigation({ children }: { children: React.ReactNode }) {
                     Транзакции
                 </MenuItem>
             </AppShell.Navbar>
-            <AppShell.Main bg="bg.8" component={Center}>
-                {children}
-            </AppShell.Main>
+            <AppShell.Main component={Center}>{children}</AppShell.Main>
         </AppShell>
     );
 }

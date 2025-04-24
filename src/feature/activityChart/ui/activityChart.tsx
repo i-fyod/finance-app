@@ -1,5 +1,5 @@
 import { BarChart } from "@mantine/charts";
-import { rem, useMantineTheme } from "@mantine/core";
+import { rem } from "@mantine/core";
 
 import { formatNumberWithSuffix } from "@/shared/lib";
 
@@ -32,7 +32,6 @@ export const data = [
 ];
 
 export const ActivityChart = () => {
-    const theme = useMantineTheme();
     return (
         <BarChart
             h="225"
@@ -51,7 +50,7 @@ export const ActivityChart = () => {
             maxBarWidth={8}
             withTooltip={false}
             styles={{
-                legendItemName: { color: theme.colors.gray[4], fontSize: rem(12) },
+                legendItemName: { color: "gray.4", fontSize: rem(12) },
             }}
         />
     );

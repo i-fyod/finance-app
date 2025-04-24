@@ -1,20 +1,29 @@
-import { Box, Divider, Group, NumberFormatter, Text, Title } from "@mantine/core";
+import { Box, Divider, Group, NumberFormatter, Text, Title, rem } from "@mantine/core";
+
+import { ITransaction } from "@/shared/types";
 
 interface Props {
-    data: {
-        type: "income" | "expenses";
-        description: string;
-        name: string;
-        cost: number;
-    };
+    data: ITransaction;
+    isActive?: boolean;
+    enabled?: boolean;
+    onClick?: () => void;
 }
-export const Transaction = ({ data }: Props) => {
+
+export const Transaction = ({ data, onClick, isActive = false, enabled = false }: Props) => {
     return (
         <>
-            <Group justify="space-between" align="center">
+            <Group
+                justify="space-between"
+                align="center"
+                p={isActive ? "6" : "0 6"}
+                bg={isActive ? "dark.7" : "transparent"}
+                onClick={onClick}
+                style={
+                    enabled ? { borderRadius: rem(8), cursor: "pointer" } : { borderRadius: rem(8) }
+                }>
                 <Box>
                     <Text mb="7" fz="12" c="gray.4">
-                        {data.description}
+                        {data.category}
                     </Text>
                     <Title order={2} c="white">
                         {data.name}

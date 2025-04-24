@@ -1,7 +1,21 @@
-import { createTheme, rem } from "@mantine/core";
+import { Button, createTheme, rem } from "@mantine/core";
+
+import classes from "./styles.module.css";
 
 export const theme = createTheme({
     colors: {
+        dark: [
+            "#E5E7EB",
+            "#D1D5DB",
+            "#9CA3AF",
+            "#6B7280",
+            "#4B5563",
+            "#374151",
+            "#1A1C22",
+            "#282C35",
+            "#111827",
+            "#030712",
+        ],
         bg: [
             "#f3f4f6",
             "#e6e6e6",
@@ -46,5 +60,10 @@ export const theme = createTheme({
             h2: { fontSize: rem(15) },
             h3: { fontWeight: "400", fontSize: rem(12) },
         },
+    },
+    components: {
+        Button: Button.extend({
+            classNames: classes,
+        }),
     },
 });
