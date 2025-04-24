@@ -1,1 +1,7 @@
-export { getTransactions, getTransaction, createTransaction, deleteTransaction } from "./api.ts";
+export {
+    getTransactions,
+    getTransaction,
+    createTransaction,
+    deleteTransaction,
+    getSummary,
+} from "./api.ts";
