@@ -17,6 +17,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { deleteTransaction, getTransaction } from "@/shared/api";
 import { queryClient } from "@/shared/lib";
 import { IUrlParams } from "@/shared/types";
+import { CategoriesIcons } from "@/shared/ui/icons";
 
 export const Operation = () => {
     const urlParams: IUrlParams = transactionsRoute.useSearch();
@@ -148,7 +149,12 @@ export const Operation = () => {
                 </Grid.Col>
             </Grid>
             <Stack align="center" gap="0">
-                <ThemeIcon size="120" radius="100%" color="dark.7" mb="20"></ThemeIcon>
+                <ThemeIcon size="120" radius="100%" color="dark.7" mb="20">
+                    <CategoriesIcons
+                        category={data?.category!}
+                        style={{ height: "35%", width: "35%" }}
+                    />
+                </ThemeIcon>
                 <Title order={2} c="white" mb="2">
                     {data?.name}
                 </Title>
