@@ -16,7 +16,7 @@ export const MiniPanels = ({ className }: { className?: string }) => {
             <QuickLookPanel title="Баланс" value={data?.balance!} />
             <QuickLookPanel title="Доход" value={data?.income!} />
             <QuickLookPanel title="Затраты" value={data?.expenses!} />
-            <QuickLookPanel title="Накопления" value={41210} />
+            <QuickLookPanel title="Накопления" value={data?.savings!} />
         </Group>
     );
 };

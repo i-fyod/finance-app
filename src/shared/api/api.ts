@@ -1,6 +1,13 @@
 import axios from "axios";
 
-import { IStatsResponse, ISummary, ITransaction, ITransactionsResponse } from "@/shared/types";
+import {
+    ISaving,
+    ISavingsResponse,
+    IStatsResponse,
+    ISummary,
+    ITransaction,
+    ITransactionsResponse,
+} from "@/shared/types";
 
 const BASE_URL = import.meta.env.VITE_BASE_API_URL;
 
@@ -49,5 +56,25 @@ export const getStats = async (period: "weekly" | "yearly"): Promise<IStatsRespo
     const response = await axios.get<IStatsResponse[]>(`${BASE_URL}stats/${period}`, {
         headers: { "X-User-Id": localStorage.getItem("uuid") },
     });
+    return response.data;
+};
+
+export const getSavings = async (): Promise<ISavingsResponse> => {
+    const response = await axios.get<ISavingsResponse>(`${BASE_URL}savings`, {
+        headers: { "X-User-Id": localStorage.getItem("uuid") },
+    });
+    return response.data;
+};
+
+export const createSaving = async (
+    saving: Omit<ISaving, "savingId" | "user_id">
+): Promise<ISavingsResponse> => {
+    const response = await axios.post<ISavingsResponse>(`${BASE_URL}savings`, saving, {
+        headers: {
+            "X-User-Id": localStorage.getItem("uuid"),
+            "Content-Type": "application/json",
+        },
+    });
+
     return response.data;
 };

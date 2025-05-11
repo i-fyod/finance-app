@@ -1,5 +1,6 @@
 import { Main } from "@/pages/main";
 import { Transactions } from "@/pages/transactions";
+import { Wallet } from "@/pages/wallet";
 
 import { MantineProvider } from "@mantine/core";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -41,6 +42,12 @@ export const transactionsRoute = createRoute({
     component: Transactions,
 });
 
+export const walletRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "wallet",
+    component: Wallet,
+});
+
 const notFoundRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: "*",
@@ -50,5 +57,5 @@ const notFoundRoute = createRoute({
 });
 
 export const router = createRouter({
-    routeTree: rootRoute.addChildren([mainRoute, transactionsRoute, notFoundRoute]),
+    routeTree: rootRoute.addChildren([mainRoute, transactionsRoute, notFoundRoute, walletRoute]),
 });

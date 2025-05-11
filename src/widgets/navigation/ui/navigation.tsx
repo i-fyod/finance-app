@@ -1,10 +1,10 @@
-import { AppShell, Burger, Center, Group, useMatches } from "@mantine/core";
+import { AppShell, Burger, Group, useMatches } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useLocation, useNavigate } from "@tanstack/react-router";
 
 import { MenuItem } from "@/entities/menuItem";
 
-import { DashboardIcon, TransactionsIcon } from "@/shared/ui/icons";
+import { DashboardIcon, TransactionsIcon, WalletIcon } from "@/shared/ui/icons";
 import { Logo } from "@/shared/ui/logo";
 
 export function Navigation({ children }: { children: React.ReactNode }) {
@@ -51,8 +51,16 @@ export function Navigation({ children }: { children: React.ReactNode }) {
                     }}>
                     Транзакции
                 </MenuItem>
+                <MenuItem
+                    icon={<WalletIcon active={page === "/wallet"} />}
+                    isActive={page === "/wallet"}
+                    onClick={() => {
+                        navigate({ to: "/wallet" });
+                    }}>
+                    Кошелек
+                </MenuItem>
             </AppShell.Navbar>
-            <AppShell.Main component={Center}>{children}</AppShell.Main>
+            <AppShell.Main>{children}</AppShell.Main>
         </AppShell>
     );
 }

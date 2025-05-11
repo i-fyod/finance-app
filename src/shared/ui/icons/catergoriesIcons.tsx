@@ -44,7 +44,7 @@ export const CategoriesIcons = ({
         Перевод: "IconRepeat",
     };
 
-    const IconName = categoryIconMap[category] || "IconUser";
+    const IconName = categoryIconMap[category] || "IconMan";
     const IconComponent = icons[IconName] as React.ElementType;
 
     return IconComponent ? <IconComponent {...other} /> : null;

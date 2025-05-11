@@ -29,6 +29,20 @@ export interface ISummary {
     balance: number;
     expenses: number;
     income: number;
+    savings: number;
+}
+
+export interface ISaving {
+    savingId: number;
+    user_id: string;
+    name: string;
+    progress: number;
+    targetAmount: number;
+}
+
+export interface ISavingsResponse {
+    savings: ISaving[];
+    completed: ISaving[];
 }
 
 export interface IUrlParams {

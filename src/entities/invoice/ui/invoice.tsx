@@ -1,20 +1,17 @@
 import { Group, NumberFormatter, Progress, Stack, Title } from "@mantine/core";
 
+import { ISaving } from "@/shared/types";
 import { ExpensesIcon } from "@/shared/ui/icons";
 
 interface Props {
-    data: {
-        name: string;
-        progress: number;
-        targetAmount: number;
-    };
+    data: ISaving;
 }
 
 export const Invoice = ({ data }: Props) => {
     return (
         <Group mb="25" justify="space-between">
             <ExpensesIcon />
-            <Stack w="245" justify="space-between">
+            <Stack w="calc(100% - 4rem)" justify="space-between">
                 <Group justify="space-between">
                     <Title order={3} fw="500" c="white">
                         {data.name}

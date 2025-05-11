@@ -16,7 +16,7 @@ export const Transactions = () => {
     return (
         <Box
             w="100%"
-            bg="bg.9"
+            bg="dark.6"
             p="15 25"
             style={{ height: "calc(100vh - 50px)", borderRadius: rem(8) }}>
             <Title fz="20" c="white" order={1}>
