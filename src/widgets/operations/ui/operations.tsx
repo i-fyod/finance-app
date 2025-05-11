@@ -1,6 +1,6 @@
 import { transactionsRoute } from "@/app/routes";
 
-import { ScrollArea, Title } from "@mantine/core";
+import { Center, ScrollArea, Title } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 
 import { Transaction } from "@/entities/transaction";
@@ -18,28 +18,30 @@ export const Operations = () => {
     const navigate = transactionsRoute.useNavigate();
     const urlParams: IUrlParams = transactionsRoute.useSearch();
 
-    return (
+    return data && data?.length > 0 ? (
         <ScrollArea h="100%" offsetScrollbars scrollbarSize={0}>
-            {data
-                ? data.map((day) => (
-                      <>
-                          <Title key={day.date} mb="15" fz="17" order={2} c="white">
-                              {formatDate(day.date)}
-                          </Title>
-                          {day.transactions.map((transaction) => (
-                              <Transaction
-                                  key={transaction.transactionId}
-                                  data={transaction}
-                                  isActive={urlParams.id === transaction.transactionId}
-                                  enabled
-                                  onClick={() => {
-                                      navigate({ search: { id: transaction.transactionId } });
-                                  }}
-                              />
-                          ))}
-                      </>
-                  ))
-                : ""}
+            {data.map((day) => (
+                <>
+                    <Title key={day.date} mb="15" fz="17" order={2} c="white">
+                        {formatDate(day.date)}
+                    </Title>
+                    {day.transactions.map((transaction) => (
+                        <Transaction
+                            key={transaction.transactionId}
+                            data={transaction}
+                            isActive={urlParams.id === transaction.transactionId}
+                            enabled
+                            onClick={() => {
+                                navigate({ search: { id: transaction.transactionId } });
+                            }}
+                        />
+                    ))}
+                </>
+            ))}
         </ScrollArea>
+    ) : (
+        <Title order={2} mt="-10" h="100%" component={Center}>
+            Здесь пока нет операций. Добавьте их
+        </Title>
     );
 };

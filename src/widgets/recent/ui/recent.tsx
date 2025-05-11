@@ -1,4 +1,4 @@
-import { Box, ScrollArea, Title, rem } from "@mantine/core";
+import { Box, Center, ScrollArea, Title, rem } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 
 import { Transaction } from "@/entities/transaction";
@@ -17,13 +17,22 @@ export const Recent = ({ className }: { className?: string }) => {
             <Title pos="absolute" order={2} c="white">
                 Последние транзакции
             </Title>
-            <ScrollArea h="95%" top={40} offsetScrollbars scrollbarSize={3} scrollHideDelay={200}>
-                {data
-                    ? data.map((transaction) => (
-                          <Transaction key={transaction.transactionId} data={transaction} />
-                      ))
-                    : ""}
-            </ScrollArea>
+            {data ? (
+                <ScrollArea
+                    h="95%"
+                    top={40}
+                    offsetScrollbars
+                    scrollbarSize={3}
+                    scrollHideDelay={200}>
+                    {data.map((transaction) => (
+                        <Transaction key={transaction.transactionId} data={transaction} />
+                    ))}
+                </ScrollArea>
+            ) : (
+                <Title order={2} h="100%" component={Center}>
+                    Здесь пока нет транзакций
+                </Title>
+            )}
         </Box>
     );
 };
